@@ -5,12 +5,10 @@ import Session from "~/models/Session.js";
 export default defineEventHandler(async (event) => {
   // Connect to the database
   await connectDb();
-  console.log(event.req.url);
-  let myshop  = event.req.url;
-  let splitshop = myshop.split('=');
- let shop= splitshop[1];
-  // Read the request body
 
+  // Read the request body
+  const body = await readBody(event);
+  const shop = body?.shopifyStoreUrl;
 
   // Check if shop parameter is provided
   if (!shop) {

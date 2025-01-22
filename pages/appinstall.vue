@@ -34,8 +34,14 @@ const installApp =async () => {
 
     try {
         // Sending the Shopify store URL to the backend via POST request
-        let response = await fetch(`/api/auth?shop=${shopifyStoreUrl}`);
-console.log(response);
+        let response = await fetch('/api/auth', {
+            method: 'POST',  // Set method to POST
+            headers: {
+                'Content-Type': 'application/json',  // Set content type to JSON
+            },
+            body: JSON.stringify({ shopifyStoreUrl })  // Send the URL in the body
+        });
+
         // Handle the response from the backend
         if (response.ok) {
             const data = await response.json();
