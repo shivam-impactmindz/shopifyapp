@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-const MONGO_URI = 'mongodb://localhost:27017/shopifysap';
+const MONGO_URI = 'mongodb+srv://shivam:shivam@cluster0.lo7se.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
 
 // MongoDB connection logic
 const connectDb = async () => {
